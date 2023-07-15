@@ -1,6 +1,11 @@
+package DAY_3;
+
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -8,6 +13,7 @@ import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class ArabamComTest {
@@ -42,7 +48,7 @@ public class ArabamComTest {
     }
 
     @Test
-    public void arabamTest(){
+    public void arabamTest() throws InterruptedException {
 
         // Uygulamanin basarili bir sekilde yuklendigi dogrulanir
         Assert.assertTrue(driver.isAppInstalled("com.dogan.arabam"));
@@ -55,7 +61,17 @@ public class ArabamComTest {
       // Aracimin fiyatini merak ediyorum bolumunetiklayalim
         driver.findElementByXPath("//*[@text='Aracımın fiyatını merak ediyorum']").click();
       // Wolkswagen markasini secelim
+        TouchAction touchAction=new TouchAction<>(driver);
+        touchAction
+                .press(PointOption.point(531,1689)).
+                 waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
+                .moveTo(PointOption.point(531,465)).release().perform();
+        Thread.sleep(1000);
+
+        driver.findElementByXPath("//*[@text='Volkswagen']").click();
+
       // yil secimi yapalim
+        driver.findElementByXPath("//*[@text='2018']").click();
      // model secimi yapalim
      // govde tipini secelim
 
