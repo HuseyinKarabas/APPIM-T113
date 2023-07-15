@@ -1,4 +1,4 @@
-package DAY_3;
+package tests.DAY_3;
 
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -114,8 +114,11 @@ public class ArabamComTest {
         // aracimizin fiyatinin 500000 tl den fazla oldugunu test edelim
         String aracinFiyati=driver.findElementById("com.dogan.arabam:id/tvAveragePrice").getText();
         aracinFiyati=aracinFiyati.replaceAll("\\D",""); // 1.550.000 Tl
-        System.out.println(aracinFiyati);
+        System.out.println(aracinFiyati); //1550000
+
+        Assert.assertTrue(Integer.parseInt(aracinFiyati)>500000);
         // uygulamayi kapatalim
+        //driver.closeApp();
     }
 
 }
