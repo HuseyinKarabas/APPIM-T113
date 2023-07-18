@@ -77,6 +77,7 @@ public class KiwiCom {
 
         kiwi.koordinatTiklama(262,899,1000);
         kiwi.saveButton.click();
+        Thread.sleep(2000);
         // search butonuna tiklanir
         kiwi.koordinatTiklama(535,1193,1000);
         // en  ucuz ve aktarmasiz filtrelemeleri yapilir
@@ -84,7 +85,11 @@ public class KiwiCom {
         kiwi.koordinatTiklama(538,584,1000);
         kiwi.koordinatTiklama(529,237,1000);
         kiwi.koordinatTiklama(521,1448,1000);
+        Thread.sleep(1000);
         // gelen bilet fiyati kaydedilir ve kullanicin telefonuna sms olarak gonderilir
+        String kiwifiyat=kiwi.fiyat.getText();
+        String phoneNumber="5555555555";
+        driver.sendSMS(phoneNumber,kiwifiyat);
 
 
     }

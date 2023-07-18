@@ -30,6 +30,9 @@ public class KiwiPage {
     @FindBy(id = "com.skypicker.main:id/saveButton")
     public WebElement saveButton;
 
+    @FindBy(xpath = "(//*[@class='android.widget.TextView'])[12]")
+    public WebElement fiyat;
+
 
 
      public void ucAdimGecme(int iBaslangic,int iBitis,int xKoordinat,int yKoordinat,int bekleme) throws InterruptedException {
